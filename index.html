@@ -1,12 +1,74 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lilo Fashion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        font-family: 'Montserrat', sans-serif;
+      }
+      h1, h2, h3 {
+        font-family: 'Playfair Display', serif;
+      }
+    </style>
   </head>
   <body class="bg-white text-gray-800">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <!-- Header -->
+    <header class="flex justify-between items-center p-4 shadow-md sticky top-0 bg-white z-50">
+      <h1 class="text-xl font-bold">Lilo Fashion</h1>
+      <nav class="space-x-4 rtl:space-x-reverse hidden md:block">
+        <a href="#home" class="hover:text-pink-500">الرئيسية</a>
+        <a href="#shop" class="hover:text-pink-500">المتجر</a>
+        <a href="#new" class="hover:text-pink-500">جديدنا</a>
+        <a href="#offers" class="hover:text-pink-500">العروض</a>
+        <a href="#about" class="hover:text-pink-500">حولنا</a>
+        <a href="#contact" class="hover:text-pink-500">تواصل معنا</a>
+      </nav>
+    </header><!-- Hero Section -->
+<section id="home" class="bg-pink-100 text-center py-20 px-4">
+  <h2 class="text-3xl mb-4">اكتشفي أناقتك مع مجموعة Lilo الجديدة</h2>
+  <a href="#shop" class="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600 transition">تسوقي الآن</a>
+</section>
+
+<!-- Categories -->
+<section id="shop" class="py-12 px-4">
+  <h3 class="text-2xl mb-6 text-center">تسوقي حسب الفئة</h3>
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+    <div class="bg-gray-100 p-4 rounded-lg text-center">فساتين</div>
+    <div class="bg-gray-100 p-4 rounded-lg text-center">بلوزات</div>
+    <div class="bg-gray-100 p-4 rounded-lg text-center">عبايات</div>
+    <div class="bg-gray-100 p-4 rounded-lg text-center">إكسسوارات</div>
+  </div>
+</section>
+
+<!-- Best Sellers -->
+<section class="bg-pink-50 py-12 px-4">
+  <h3 class="text-2xl mb-6 text-center">الأكثر مبيعًا</h3>
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+    <div class="bg-white p-4 rounded-lg shadow">منتج 1</div>
+    <div class="bg-white p-4 rounded-lg shadow">منتج 2</div>
+    <div class="bg-white p-4 rounded-lg shadow">منتج 3</div>
+  </div>
+</section>
+
+<!-- About Us -->
+<section id="about" class="py-12 px-4">
+  <h3 class="text-2xl mb-4 text-center">من نحن</h3>
+  <p class="text-center max-w-xl mx-auto">Lilo Fashion علامة متخصصة في الموضة النسائية، تجمع بين الأناقة والراحة لتناسب كل الأذواق.</p>
+</section>
+
+<!-- Contact -->
+<section id="contact" class="bg-pink-100 py-12 px-4">
+  <h3 class="text-2xl mb-4 text-center">تواصلي معنا</h3>
+  <p class="text-center">واتساب - إنستجرام - البريد الإلكتروني</p>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-800 text-white text-center p-4 mt-8">
+  <p>جميع الحقوق محفوظة © Lilo Fashion 2025</p>
+</footer>
+
   </body>
 </html>
