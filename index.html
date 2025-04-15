@@ -1,74 +1,103 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lilo Fashion</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      body {
-        font-family: 'Montserrat', sans-serif;
-      }
-      h1, h2, h3 {
-        font-family: 'Playfair Display', serif;
-      }
-    </style>
-  </head>
-  <body class="bg-white text-gray-800">
-    <!-- Header -->
-    <header class="flex justify-between items-center p-4 shadow-md sticky top-0 bg-white z-50">
-      <h1 class="text-xl font-bold">Lilo Fashion</h1>
-      <nav class="space-x-4 rtl:space-x-reverse hidden md:block">
-        <a href="#home" class="hover:text-pink-500">الرئيسية</a>
-        <a href="#shop" class="hover:text-pink-500">المتجر</a>
-        <a href="#new" class="hover:text-pink-500">جديدنا</a>
-        <a href="#offers" class="hover:text-pink-500">العروض</a>
-        <a href="#about" class="hover:text-pink-500">حولنا</a>
-        <a href="#contact" class="hover:text-pink-500">تواصل معنا</a>
-      </nav>
-    </header><!-- Hero Section -->
-<section id="home" class="bg-pink-100 text-center py-20 px-4">
-  <h2 class="text-3xl mb-4">اكتشفي أناقتك مع مجموعة Lilo الجديدة</h2>
-  <a href="#shop" class="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600 transition">تسوقي الآن</a>
-</section>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-<!-- Categories -->
-<section id="shop" class="py-12 px-4">
-  <h3 class="text-2xl mb-6 text-center">تسوقي حسب الفئة</h3>
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-    <div class="bg-gray-100 p-4 rounded-lg text-center">فساتين</div>
-    <div class="bg-gray-100 p-4 rounded-lg text-center">بلوزات</div>
-    <div class="bg-gray-100 p-4 rounded-lg text-center">عبايات</div>
-    <div class="bg-gray-100 p-4 rounded-lg text-center">إكسسوارات</div>
-  </div>
-</section>
+    <!-- شريط العنوان مع الاسم -->
+    <header>
+        <div class="logo">
+            <h1>Lilo Fashion</h1>
+        </div>
 
-<!-- Best Sellers -->
-<section class="bg-pink-50 py-12 px-4">
-  <h3 class="text-2xl mb-6 text-center">الأكثر مبيعًا</h3>
-  <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-    <div class="bg-white p-4 rounded-lg shadow">منتج 1</div>
-    <div class="bg-white p-4 rounded-lg shadow">منتج 2</div>
-    <div class="bg-white p-4 rounded-lg shadow">منتج 3</div>
-  </div>
-</section>
+        <!-- قائمة الموبايل (يتم إظهارها عند الضغط على زر القائمة) -->
+        <div class="menu-icon" onclick="toggleMenu()">☰ قوائم</div>
+        
+        <!-- القوائم المنبثقة للموبايل -->
+        <nav id="mobile-menu" class="mobile-menu">
+            <ul>
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#store">المتجر</a></li>
+                <li><a href="#purchase">الشراء</a></li>
+                <li><a href="#new-arrivals">جديدنا</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+        </nav>
 
-<!-- About Us -->
-<section id="about" class="py-12 px-4">
-  <h3 class="text-2xl mb-4 text-center">من نحن</h3>
-  <p class="text-center max-w-xl mx-auto">Lilo Fashion علامة متخصصة في الموضة النسائية، تجمع بين الأناقة والراحة لتناسب كل الأذواق.</p>
-</section>
+        <!-- القوائم للأجهزة المكتبية -->
+        <nav class="desktop-menu">
+            <ul>
+                <li><a href="#home">الرئيسية</a></li>
+                <li><a href="#store">المتجر</a></li>
+                <li><a href="#purchase">الشراء</a></li>
+                <li><a href="#new-arrivals">جديدنا</a></li>
+                <li><a href="#contact">اتصل بنا</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<!-- Contact -->
-<section id="contact" class="bg-pink-100 py-12 px-4">
-  <h3 class="text-2xl mb-4 text-center">تواصلي معنا</h3>
-  <p class="text-center">واتساب - إنستجرام - البريد الإلكتروني</p>
-</section>
+    <!-- خلفية الموقع -->
+    <div class="background"></div>
 
-<!-- Footer -->
-<footer class="bg-gray-800 text-white text-center p-4 mt-8">
-  <p>جميع الحقوق محفوظة © Lilo Fashion 2025</p>
-</footer>
+    <!-- قسم الرئيسية -->
+    <section id="home">
+        <h2>العنوان</h2>
+        <p>العراق - بغداد - المنصور - مقابل سهام العبيدي</p>
+        <div class="social-media">
+            <a href="https://www.facebook.com" target="_blank">فيس بوك</a>
+            <a href="https://www.instagram.com" target="_blank">انستغرام</a>
+            <a href="https://wa.me/your-number" target="_blank">واتساب</a>
+        </div>
+        <p>أوقات الدوام: من 3 ظهراً إلى 11 مساءً</p>
+        <p>منتجاتنا: جميع الملابس تركية ومن ماركات عالمية</p>
+        <p class="moving-text">لايوجد ترجيع فقط تبديل</p>
+    </section>
 
-  </body>
+    <!-- قسم المتجر -->
+    <section id="store">
+        <h2>المتجر</h2>
+        <div class="product-gallery">
+            <!-- يمكن وضع صور المنتجات هنا -->
+            <img src="path/to/product1.jpg" alt="منتج 1" onclick="window.location.href='purchase.html'">
+            <img src="path/to/product2.jpg" alt="منتج 2" onclick="window.location.href='purchase.html'">
+        </div>
+    </section>
+
+    <!-- قسم الشراء -->
+    <section id="purchase">
+        <h2>الشراء</h2>
+        <p>اللون: أحمر، أزرق، أخضر</p>
+        <p>القياس: S، M، L</p>
+        <p>السعر: 50,000 دينار</p>
+        <p>سعر التوصيل: ٥ دينار لبغداد، ٨ دينار للمحافظات</p>
+        <button>شراء الآن</button>
+    </section>
+
+    <!-- قسم الجديد لدينا -->
+    <section id="new-arrivals">
+        <h2>جديدنا</h2>
+        <div class="new-arrivals-gallery">
+            <!-- صور الموديلات الجديدة -->
+            <img src="path/to/new-product1.jpg" alt="منتج جديد 1">
+            <img src="path/to/new-product2.jpg" alt="منتج جديد 2">
+        </div>
+    </section>
+
+    <!-- قسم اتصل بنا -->
+    <section id="contact">
+        <h2>اتصل بنا</h2>
+        <p>أرقام الهواتف: 123-456-789</p>
+        <p>البريد الإلكتروني: info@lilofashion.com</p>
+    </section>
+
+    <footer>
+        <p>جميع الحقوق محفوظة © Lilo Fashion 2025</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
