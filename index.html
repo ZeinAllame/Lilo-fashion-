@@ -1,178 +1,141 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<!DOCTYPE html><html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lilo Fashion</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Cairo', sans-serif;
-      background: linear-gradient(to bottom, #fff, #fdf6e3);
-      background-image: url('fashion-background.jpg'); /* ضع هنا رابط صورة خلفية مناسبة */
-      background-size: cover;
-      background-repeat: no-repeat;
-      color: #444;
+      font-family: 'Tahoma', sans-serif;
+      background: linear-gradient(to bottom right, #ffffff, #fdf6e3);
+      color: #333;
     }
-
     header {
       background-color: #fff8dc;
-      padding: 1rem;
+      border-bottom: 2px solid gold;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px solid gold;
+      padding: 10px 20px;
     }
-
-    .logo {
-      font-size: 1.8rem;
-      font-weight: bold;
+    header h1 {
       color: goldenrod;
     }
-
     nav {
       display: flex;
-      gap: 1rem;
+      gap: 15px;
     }
-
     nav a {
       text-decoration: none;
-      color: #444;
+      color: #555;
       font-weight: bold;
     }
-
-    .menu-icon {
+    .mobile-menu-button {
       display: none;
-      font-size: 1.5rem;
-      cursor: pointer;
     }
-
-    .side-menu {
-      display: none;
-      flex-direction: column;
-      background-color: #fff8dc;
-      position: fixed;
-      top: 0;
-      right: 0;
-      height: 100%;
-      width: 250px;
-      padding: 1rem;
-      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    .section {
+      padding: 20px;
+      background-color: #fff;
+      margin: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
-
-    .side-menu a {
-      margin: 10px 0;
+    .section h2 {
+      color: goldenrod;
     }
-
+    .icons a {
+      margin-left: 10px;
+      text-decoration: none;
+      font-size: 20px;
+    }
+    .marquee {
+      color: red;
+      font-weight: bold;
+    }
+    .products img {
+      width: 100%;
+      max-width: 300px;
+      margin: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
     @media (max-width: 768px) {
       nav {
         display: none;
+        flex-direction: column;
+        background-color: #fff8dc;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
       }
-
-      .menu-icon {
-        display: block;
-      }
-
-      .side-menu.show {
+      nav.show {
         display: flex;
       }
-    }
-
-    .content {
-      padding: 2rem;
-      background-color: rgba(255,255,255,0.8);
-    }
-
-    .moving-text {
-      font-size: 1.2rem;
-      color: darkred;
-      margin-top: 10px;
-      animation: moveText 5s linear infinite;
-    }
-
-    @keyframes moveText {
-      0% { transform: translateX(100%); }
-      100% { transform: translateX(-100%); }
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background-color: #fff8dc;
-      color: #888;
-    }
-
-    .social-icons img {
-      width: 24px;
-      margin-left: 10px;
+      .mobile-menu-button {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 18px;
+        color: goldenrod;
+      }
     }
   </style>
 </head>
 <body>
-<!-- قسم المتجر -->
-<section id="store" class="content">
-  <h2>المتجر</h2>
-  <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
-
-    <!-- الموديل الأول - أخضر -->
-    <div style="width: 300px; background-color: #fffbe6; border: 1px solid gold; border-radius: 10px; padding: 10px;">
-      <a href="#buy">
-        <img src="green-model.jpg" alt="موديل أخضر" style="width: 100%; border-radius: 10px;">
-      </a>
-      <h3 style="text-align: center;">موديل فري سايز (أخضر)</h3>
-    </div>
-
-    <!-- الموديل الأول - أبيض -->
-    <div style="width: 300px; background-color: #fffbe6; border: 1px solid gold; border-radius: 10px; padding: 10px;">
-      <a href="#buy">
-        <img src="white-model.jpg" alt="موديل أبيض" style="width: 100%; border-radius: 10px;">
-      </a>
-      <h3 style="text-align: center;">موديل فري سايز (أبيض)</h3>
-    </div>
-
-  </div>
-</section>
   <header>
-    <div class="logo">Lilo Fashion</div>
-    <div class="menu-icon" onclick="toggleMenu()">قوائم</div>
-    <nav>
+    <h1>Lilo Fashion</h1>
+    <button class="mobile-menu-button" onclick="toggleMenu()">قوائم</button>
+    <nav id="main-menu">
       <a href="#home">الرئيسية</a>
       <a href="#store">المتجر</a>
       <a href="#buy">الشراء</a>
       <a href="#new">جديدنا</a>
       <a href="#contact">اتصل بنا</a>
     </nav>
-  </header>
-
-  <div class="side-menu" id="sideMenu">
-    <a href="#home" onclick="toggleMenu()">الرئيسية</a>
-    <a href="#store" onclick="toggleMenu()">المتجر</a>
-    <a href="#buy" onclick="toggleMenu()">الشراء</a>
-    <a href="#new" onclick="toggleMenu()">جديدنا</a>
-    <a href="#contact" onclick="toggleMenu()">اتصل بنا</a>
-  </div>
-
-  <section class="content" id="home">
-    <h2>العراق - بغداد - المنصور - مقابل سهام العبيدي</h2>
-    <div class="social-icons">
-      <a href="https://facebook.com/yourpage" target="_blank"><img src="facebook-icon.png" alt="Facebook"></a>
-      <a href="https://instagram.com/yourpage" target="_blank"><img src="instagram-icon.png" alt="Instagram"></a>
-      <a href="https://wa.me/964xxxxxxxxx" target="_blank"><img src="whatsapp-icon.png" alt="WhatsApp"></a>
+  </header>  <section class="section" id="home">
+    <h2>العنوان:</h2>
+    <p>العراق - بغداد - المنصور - مقابل سهام العبيدي</p>
+    <div class="icons">
+      <a href="https://www.facebook.com/share/18ji3YFphF/" target="_blank">فيسبوك</a>
+      <a href="https://www.instagram.com/lilo_fashion2?igsh=MTBlcmZyMG9maTIxeQ==" target="_blank">إنستغرام</a>
+      <a href="https://wa.me/9647805564180" target="_blank">واتساب</a>
     </div>
-    <p>أوقات الدوام: من الساعة 3 ظهراً إلى الساعة 11 مساءً</p>
+    <p>أوقات الدوام: من الساعة 3 ظهرًا إلى الساعة 11 مساءً</p>
     <p>جميع الملابس تركية ومن ماركات عالمية</p>
-    <div class="moving-text">لايوجد ترجيع فقط تبديل</div>
-  </section>
-
-  <footer>
-    جميع الحقوق محفوظة © Lilo Fashion 2025
-  </footer>
-
-  <script>
+    <marquee class="marquee">لا يوجد ترجيع فقط تبديل</marquee>
+  </section>  <section class="section" id="store">
+    <h2>المتجر</h2>
+    <div class="products">
+      <a href="#buy"><img src="model1.jpg" alt="موديل 1"></a>
+      <a href="#buy"><img src="model2.jpg" alt="موديل 2"></a>
+    </div>
+  </section>  <section class="section" id="buy">
+    <h2>الشراء</h2>
+    <p>الموديل: فري سايز</p>
+    <p>الألوان: أخضر، أبيض</p>
+    <p>السعر: ---</p>
+    <p>سعر التوصيل: بغداد 5 آلاف - المحافظات 8 آلاف</p>
+  </section>  <section class="section" id="new">
+    <h2>جديدنا</h2>
+    <div class="products">
+      <img src="model1.jpg" alt="موديل جديد 1">
+      <img src="model2.jpg" alt="موديل جديد 2">
+    </div>
+  </section>  <section class="section" id="contact">
+    <h2>اتصل بنا</h2>
+    <p>رقم الهاتف: +964 780 556 4180</p>
+    <p>البريد الإلكتروني: example@email.com</p>
+    <div class="icons">
+      <a href="https://www.facebook.com/share/18ji3YFphF/" target="_blank">فيسبوك</a>
+      <a href="https://www.instagram.com/lilo_fashion2?igsh=MTBlcmZyMG9maTIxeQ==" target="_blank">إنستغرام</a>
+      <a href="https://wa.me/9647805564180" target="_blank">واتساب</a>
+    </div>
+  </section>  <script>
     function toggleMenu() {
-      document.getElementById("sideMenu").classList.toggle("show");
+      const nav = document.getElementById('main-menu');
+      nav.classList.toggle('show');
     }
-  </script>
-
-</body>
+  </script></body>
 </html>
