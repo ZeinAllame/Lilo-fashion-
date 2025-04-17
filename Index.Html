@@ -1,74 +1,178 @@
-<!DOCTYPE html><html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lilo Fashion</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Montserrat&display=swap" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-      body {
-        font-family: 'Montserrat', sans-serif;
-      }
-      h1, h2, h3 {
-        font-family: 'Playfair Display', serif;
-      }
-    </style>
-  </head>
-  <body class="bg-white text-gray-800">
-    <!-- Header -->
-    <header class="flex justify-between items-center p-4 shadow-md sticky top-0 bg-white z-50">
-      <h1 class="text-xl font-bold">Lilo Fashion</h1>
-      <nav class="space-x-4 rtl:space-x-reverse hidden md:block">
-        <a href="#home" class="hover:text-pink-500">الرئيسية</a>
-        <a href="#shop" class="hover:text-pink-500">المتجر</a>
-        <a href="#new" class="hover:text-pink-500">جديدنا</a>
-        <a href="#offers" class="hover:text-pink-500">العروض</a>
-        <a href="#about" class="hover:text-pink-500">حولنا</a>
-        <a href="#contact" class="hover:text-pink-500">تواصل معنا</a>
-      </nav>
-    </header><!-- Hero Section -->
-<section id="home" class="bg-pink-100 text-center py-20 px-4">
-  <h2 class="text-3xl mb-4">اكتشفي أناقتك مع مجموعة Lilo الجديدة</h2>
-  <a href="#shop" class="bg-pink-500 text-white px-6 py-2 rounded-full hover:bg-pink-600 transition">تسوقي الآن</a>
-</section>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lilo Fashion</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background: linear-gradient(to bottom, #fff, #fdf6e3);
+      background-image: url('fashion-background.jpg'); /* ضع هنا رابط صورة خلفية مناسبة */
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: #444;
+    }
 
-<!-- Categories -->
-<section id="shop" class="py-12 px-4">
-  <h3 class="text-2xl mb-6 text-center">تسوقي حسب الفئة</h3>
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-    <div class="bg-gray-100 p-4 rounded-lg text-center">فساتين</div>
-    <div class="bg-gray-100 p-4 rounded-lg text-center">بلوزات</div>
-    <div class="bg-gray-100 p-4 rounded-lg text-center">عبايات</div>
-    <div class="bg-gray-100 p-4 rounded-lg text-center">إكسسوارات</div>
+    header {
+      background-color: #fff8dc;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid gold;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: goldenrod;
+    }
+
+    nav {
+      display: flex;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #444;
+      font-weight: bold;
+    }
+
+    .menu-icon {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    .side-menu {
+      display: none;
+      flex-direction: column;
+      background-color: #fff8dc;
+      position: fixed;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 250px;
+      padding: 1rem;
+      box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .side-menu a {
+      margin: 10px 0;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+
+      .menu-icon {
+        display: block;
+      }
+
+      .side-menu.show {
+        display: flex;
+      }
+    }
+
+    .content {
+      padding: 2rem;
+      background-color: rgba(255,255,255,0.8);
+    }
+
+    .moving-text {
+      font-size: 1.2rem;
+      color: darkred;
+      margin-top: 10px;
+      animation: moveText 5s linear infinite;
+    }
+
+    @keyframes moveText {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #fff8dc;
+      color: #888;
+    }
+
+    .social-icons img {
+      width: 24px;
+      margin-left: 10px;
+    }
+  </style>
+</head>
+<body>
+<!-- قسم المتجر -->
+<section id="store" class="content">
+  <h2>المتجر</h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+
+    <!-- الموديل الأول - أخضر -->
+    <div style="width: 300px; background-color: #fffbe6; border: 1px solid gold; border-radius: 10px; padding: 10px;">
+      <a href="#buy">
+        <img src="green-model.jpg" alt="موديل أخضر" style="width: 100%; border-radius: 10px;">
+      </a>
+      <h3 style="text-align: center;">موديل فري سايز (أخضر)</h3>
+    </div>
+
+    <!-- الموديل الأول - أبيض -->
+    <div style="width: 300px; background-color: #fffbe6; border: 1px solid gold; border-radius: 10px; padding: 10px;">
+      <a href="#buy">
+        <img src="white-model.jpg" alt="موديل أبيض" style="width: 100%; border-radius: 10px;">
+      </a>
+      <h3 style="text-align: center;">موديل فري سايز (أبيض)</h3>
+    </div>
+
   </div>
 </section>
+  <header>
+    <div class="logo">Lilo Fashion</div>
+    <div class="menu-icon" onclick="toggleMenu()">قوائم</div>
+    <nav>
+      <a href="#home">الرئيسية</a>
+      <a href="#store">المتجر</a>
+      <a href="#buy">الشراء</a>
+      <a href="#new">جديدنا</a>
+      <a href="#contact">اتصل بنا</a>
+    </nav>
+  </header>
 
-<!-- Best Sellers -->
-<section class="bg-pink-50 py-12 px-4">
-  <h3 class="text-2xl mb-6 text-center">الأكثر مبيعًا</h3>
-  <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-    <div class="bg-white p-4 rounded-lg shadow">منتج 1</div>
-    <div class="bg-white p-4 rounded-lg shadow">منتج 2</div>
-    <div class="bg-white p-4 rounded-lg shadow">منتج 3</div>
+  <div class="side-menu" id="sideMenu">
+    <a href="#home" onclick="toggleMenu()">الرئيسية</a>
+    <a href="#store" onclick="toggleMenu()">المتجر</a>
+    <a href="#buy" onclick="toggleMenu()">الشراء</a>
+    <a href="#new" onclick="toggleMenu()">جديدنا</a>
+    <a href="#contact" onclick="toggleMenu()">اتصل بنا</a>
   </div>
-</section>
 
-<!-- About Us -->
-<section id="about" class="py-12 px-4">
-  <h3 class="text-2xl mb-4 text-center">من نحن</h3>
-  <p class="text-center max-w-xl mx-auto">Lilo Fashion علامة متخصصة في الموضة النسائية، تجمع بين الأناقة والراحة لتناسب كل الأذواق.</p>
-</section>
+  <section class="content" id="home">
+    <h2>العراق - بغداد - المنصور - مقابل سهام العبيدي</h2>
+    <div class="social-icons">
+      <a href="https://facebook.com/yourpage" target="_blank"><img src="facebook-icon.png" alt="Facebook"></a>
+      <a href="https://instagram.com/yourpage" target="_blank"><img src="instagram-icon.png" alt="Instagram"></a>
+      <a href="https://wa.me/964xxxxxxxxx" target="_blank"><img src="whatsapp-icon.png" alt="WhatsApp"></a>
+    </div>
+    <p>أوقات الدوام: من الساعة 3 ظهراً إلى الساعة 11 مساءً</p>
+    <p>جميع الملابس تركية ومن ماركات عالمية</p>
+    <div class="moving-text">لايوجد ترجيع فقط تبديل</div>
+  </section>
 
-<!-- Contact -->
-<section id="contact" class="bg-pink-100 py-12 px-4">
-  <h3 class="text-2xl mb-4 text-center">تواصلي معنا</h3>
-  <p class="text-center">واتساب - إنستجرام - البريد الإلكتروني</p>
-</section>
+  <footer>
+    جميع الحقوق محفوظة © Lilo Fashion 2025
+  </footer>
 
-<!-- Footer -->
-<footer class="bg-gray-800 text-white text-center p-4 mt-8">
-  <p>جميع الحقوق محفوظة © Lilo Fashion 2025</p>
-</footer>
+  <script>
+    function toggleMenu() {
+      document.getElementById("sideMenu").classList.toggle("show");
+    }
+  </script>
 
-  </body>
+</body>
 </html>
