@@ -299,11 +299,12 @@
 <header class="navbar">
   <h1>Lilo Fashion</h1>
   <nav>
-    <ul>
-      <li><a href="#about">من نحن</a></li>
-      <li><a href="#contact">تواصل معنا</a></li>
-    </ul>
-  </nav>
+  <ul>
+    <li><a href="products.html">المنتجات</a></li>
+    <li><a href="#about">من نحن</a></li>
+    <li><a href="#contact">تواصل معنا</a></li>
+  </ul>
+</nav>
 </header>
   <header>
 <div class="cart-items" id="cart-items">
@@ -448,53 +449,83 @@
 </div>
 
 <script>
-    let cart = [];
-
-function addToCart(title, price) {
-  cart.push({ title, price });
-  updateCartCount();
-  updateCartList();
-}
-
-function updateCartCount() {
-  document.getElementById('cart-count').innerText = cart.length;
-}
-
-function updateCartList() {
-  const list = document.getElementById('cart-list');
-  list.innerHTML = '';
-  cart.forEach((item, index) => {
-    const li = document.createElement('li');
-    li.innerHTML = `${item.title} - ${item.price} <button onclick="removeFromCart(${index})">×</button>`;
-    list.appendChild(li);
-  });
-}
-
-function removeFromCart(index) {
-  cart.splice(index, 1);
-  updateCartCount();
-  updateCartList();
-}
-
-function toggleCart() {
-  const cartBox = document.getElementById('cart-items');
-  cartBox.style.display = cartBox.style.display === 'block' ? 'none' : 'block';
+  // جلب وحفظ السلة من localStorage
+  function getCart() {
+    return JSON.parse(localStorage.getItem('cart') || '[]');
   }
-  function showDetails(title, desc, price) {
-    document.getElementById('popup-title').innerText = title;
-    document.getElementById('popup-desc').innerText = desc;
-    document.getElementById('popup-price').innerText = price;
-    document.getElementById('popup').style.display = 'block';
+  function saveCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
   }
 
-  function closePopup() {
-    document.getElementById('popup').style.display = 'none';
+  // تحديث عداد السلة
+  function updateCartCount() {
+    document.getElementById('cart-count').innerText = getCart().length;
   }
-  function checkout() {
-  if (cart.length === 0) {
-    alert("سلتك فارغة!");
-    return;
+
+  // إضافة عنصر للسلة
+  function addToCart(title, price) {
+    const cart = getCart();
+    cart.push({ title, price });
+    saveCart(cart);
+    updateCartCount();
+    alert('تم إضافة "' + title + '" للسلة');
   }
+
+  // إزالة عنصر من السلة
+  function removeFromCart(index) {
+    const cart = getCart();
+    cart.splice(index, 1);
+    saveCart(cart);
+    updateCartCount();
+    updateCartList();
+  }
+
+  // عرض/إخفاء السلة ونموذج البيانات
+  function toggleCart() {
+    document.getElementById('cart-items').style.display ^= 'block';
+    document.getElementById('customer-info').style.display = 'none';
+    updateCartList();
+  }
+
+  // تحديث قائمة محتويات السلة في النافذة المنبثقة
+  function updateCartList() {
+    const list = document.getElementById('cart-list');
+    list.innerHTML = '';
+    getCart().forEach((item, i) => {
+      const li = document.createElement('li');
+      li.innerHTML = `${item.title} - ${item.price} <button onclick="removeFromCart(${i})">×</button>`;
+      list.appendChild(li);
+    });
+  }
+
+  // إظهار نموذج بيانات الزبونة
+  function showCustomerForm() {
+    if (getCart().length === 0) { alert("السلة فارغة!"); return; }
+    document.getElementById('customer-info').style.display = 'block';
+  }
+
+  // إرسال الطلب عبر واتساب
+  function sendOrder() {
+    const name = document.getElementById('customer-name').value.trim();
+    const city = document.getElementById('customer-city').value.trim();
+    const payment = document.getElementById('payment-method').value;
+    if (!name || !city) { alert("يرجى تعبئة جميع الحقول"); return; }
+
+    let message = `مرحباً، أود إتمام طلب:\n`;
+    getCart().forEach((item, i) => {
+      message += `${i + 1}- ${item.title} - ${item.price}\n`;
+    });
+    message += `\nالاسم: ${name}\nالمدينة: ${city}\nطريقة الدفع: ${payment}`;
+
+    const url = `https://wa.me/966500000000?text=${encodeURIComponent(message)}`;
+    window.open(url, '_blank');
+  }
+
+  // عند تحميل الصفحة
+  window.addEventListener('load', updateCartCount);
+
+    <script>
+    <script>
 
   const name = prompt("اكتبي اسمك الكريم:");
   if (!name) return;
